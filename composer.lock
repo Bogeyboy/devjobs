@@ -6718,16 +6718,16 @@
         },
         {
             "name": "laravel-lang/config",
-            "version": "1.2.0",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/config.git",
-                "reference": "7c21c7a95b4d200806e339373135ff4b79684f09"
+                "reference": "944e073a245f67315d524943faff04f03ac4a9b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/config/zipball/7c21c7a95b4d200806e339373135ff4b79684f09",
-                "reference": "7c21c7a95b4d200806e339373135ff4b79684f09",
+                "url": "https://api.github.com/repos/Laravel-Lang/config/zipball/944e073a245f67315d524943faff04f03ac4a9b3",
+                "reference": "944e073a245f67315d524943faff04f03ac4a9b3",
                 "shasum": ""
             },
             "require": {
@@ -6786,9 +6786,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/config/issues",
-                "source": "https://github.com/Laravel-Lang/config/tree/1.2.0"
+                "source": "https://github.com/Laravel-Lang/config/tree/1.4.2"
             },
-            "time": "2024-06-10T23:58:47+00:00"
+            "time": "2024-06-12T12:25:22+00:00"
         },
         {
             "name": "laravel-lang/http-statuses",
@@ -7408,16 +7408,16 @@
         },
         {
             "name": "laravel-lang/routes",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/routes.git",
-                "reference": "0598d5acd4a408cef1e9fa82ce2d087fea8571a2"
+                "reference": "e02eb7db526c835f81c99382ae356f8a932dfcea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/routes/zipball/0598d5acd4a408cef1e9fa82ce2d087fea8571a2",
-                "reference": "0598d5acd4a408cef1e9fa82ce2d087fea8571a2",
+                "url": "https://api.github.com/repos/Laravel-Lang/routes/zipball/e02eb7db526c835f81c99382ae356f8a932dfcea",
+                "reference": "e02eb7db526c835f81c99382ae356f8a932dfcea",
                 "shasum": ""
             },
             "require": {
@@ -7425,7 +7425,7 @@
                 "illuminate/config": "^10.0 || ^11.0",
                 "illuminate/http": "^10.0 || ^11.0",
                 "illuminate/support": "^10.0 || ^11.0",
-                "laravel-lang/config": "^1.1",
+                "laravel-lang/config": "^1.4.2",
                 "laravel-lang/locales": "^2.8",
                 "php": "^8.1"
             },
@@ -7470,7 +7470,7 @@
                 "issues": "https://github.com/Laravel-Lang/routes/issues",
                 "source": "https://github.com/Laravel-Lang/routes"
             },
-            "time": "2024-06-10T23:44:14+00:00"
+            "time": "2024-06-12T12:35:09+00:00"
         },
         {
             "name": "laravel/breeze",
@@ -7746,16 +7746,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.11.1",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "7284c22080590fb39f2ffa3e9057f10a4ddd0e0c"
+                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/7284c22080590fb39f2ffa3e9057f10a4ddd0e0c",
-                "reference": "7284c22080590fb39f2ffa3e9057f10a4ddd0e0c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
+                "reference": "3a6b9a42cd8f8771bd4295d13e1423fa7f3d942c",
                 "shasum": ""
             },
             "require": {
@@ -7763,11 +7763,12 @@
             },
             "conflict": {
                 "doctrine/collections": "<1.6.8",
-                "doctrine/common": "<2.13.3 || >=3,<3.2.2"
+                "doctrine/common": "<2.13.3 || >=3 <3.2.2"
             },
             "require-dev": {
                 "doctrine/collections": "^1.6.8",
                 "doctrine/common": "^2.13.3 || ^3.2.2",
+                "phpspec/prophecy": "^1.10",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.23 || ^9.5.13"
             },
             "type": "library",
@@ -7793,7 +7794,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.11.1"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.12.0"
             },
             "funding": [
                 {
@@ -7801,7 +7802,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-08T13:26:56+00:00"
+            "time": "2024-06-12T14:39:25+00:00"
         },
         {
             "name": "nunomaduro/collision",
