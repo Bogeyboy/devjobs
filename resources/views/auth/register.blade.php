@@ -39,6 +39,7 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        {{-- Inicio de sesion y olvido de contraseña --}}
         <div class="flex justify-between my-5">
             <x-link :href="route('login')">
                 {{ __('Log In') }}
