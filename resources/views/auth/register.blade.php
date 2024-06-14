@@ -16,6 +16,19 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- Tipo de cuenta -->
+        <div class="mt-4">
+            <x-input-label for="rol" :value="__('¿Que tipo de cuenta deseas en Devjobs?')" />
+            
+            <x-select id="rol" name="rol" type="select" required>
+                <option value="">-- Selecciona un tipo de cuenta --</option>
+                <option value="1">Desarrollador -- Obtener empleo</option>
+                <option value="2">Reclutador -- Publicar empleos</option>
+            </x-select>
+                
+            <x-select-error :messages="$errors->get('rol')" class="mt-2"/>
+        </div>
+        
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
@@ -50,6 +63,7 @@
             </x-link>
         </div>
 
+        {{-- Botón de confirmación --}}
         <x-primary-button class="w-full justify-center">
             {{ __('Create Account') }}
         </x-primary-button>
