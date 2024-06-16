@@ -5,8 +5,5 @@
 @endphp
 
 <a {{$attributes->merge(['class' => $classes])}}>
-    {{-- {{ __('Forgot your password?') }} --}}
     {{$slot}}
-
-    
 </a>
