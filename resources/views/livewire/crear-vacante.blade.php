@@ -26,7 +26,10 @@
     <div>
         <x-input-label for="categoria" :value="__('Categoria')" />
         <x-select id="salario" name="salario" type="select" required>
-            <option value="">-- Selecciona un tipo de cuenta --</option>
+            <option value="">-- Selecciona una categoria --</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+            @endforeach
         </x-select>
     </div>
 
