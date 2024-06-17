@@ -1,4 +1,4 @@
-<form action="" class="md:w1/2 space-y-5">
+<form action="" class="md:w1/2 space-y-4">
     {{-- Titulo de la vacante --}}
     <div>
         <x-input-label for="titulo" :value="__('Titulo de la vacante')" />
@@ -15,7 +15,10 @@
     <div>
         <x-input-label for="salario" :value="__('Salario mensual')" />
         <x-select id="salario" name="salario" type="select" required>
-            <option value="">-- Selecciona un tipo de cuenta --</option>
+            <option value="">-- Selecciona un rango salarial --</option>
+            @foreach ($salarios as $salario)
+                <option value="{{$salario->id}}">{{$salario->salario}}</option>
+            @endforeach
         </x-select>
     </div>
 
