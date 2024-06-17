@@ -6,7 +6,8 @@
             id="titulo"
             class="block mt-1 w-full"
             type="text"
-            name="titulo"
+            {{-- name="titulo" --}}
+            wire:model="titulo"
             :value="old('titulo')"
             placeholder="Titulo de la vacante"/>
     </div>
@@ -14,7 +15,11 @@
     {{-- Salario mensual --}}
     <div>
         <x-input-label for="salario" :value="__('Salario mensual')" />
-        <x-select id="salario" name="salario" type="select" required>
+        <x-select
+            id="salario"
+            wire:model="salario"
+            type="select"
+            required>
             <option value="">-- Selecciona un rango salarial --</option>
             @foreach ($salarios as $salario)
                 <option value="{{$salario->id}}">{{$salario->salario}}</option>
@@ -25,7 +30,11 @@
     {{-- Categoria --}}
     <div>
         <x-input-label for="categoria" :value="__('Categoria')" />
-        <x-select id="salario" name="salario" type="select" required>
+        <x-select
+            id="categoria"
+            wire:model="categoria"
+            type="select"
+            required>
             <option value="">-- Selecciona una categoria --</option>
             @foreach ($categorias as $categoria)
                 <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
@@ -39,8 +48,8 @@
         <x-text-input
             id="empresa"
             class="block mt-1 w-full"
+            wire:model="empresa"
             type="text"
-            name="empresa"
             :value="old('empresa')"
             placeholder="Nombre de la empresa" />
         <x-input-error :messages="$errors->get('empresa')" class="mt-2" />
@@ -52,8 +61,8 @@
         <x-text-input
             id="ultimo_dia"
             class="block mt-1 w-full"
+            wire:model="ultimo_dia"
             type="date"
-            name="ultimo_dia"
             :value="old('empresa')" />
     </div>
 
@@ -64,7 +73,7 @@
             id="descripcion"
             class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500
                         dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm w-full h-75"
-            name="descripcion"
+            wire:model="descripcion"
             placeholder="Descripción general del puesto de trabajo">
         </textarea>
     </div>
@@ -76,7 +85,7 @@
             id="imagen"
             class="block mt-1 w-full"
             type="file"
-            name="imagen" />
+            wire:model="imagen" />
     </div>
 
     {{-- Botón de confirmación --}}
