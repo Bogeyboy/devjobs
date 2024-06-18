@@ -29,12 +29,11 @@
             @foreach ($salarios as $salario)
                 <option value="{{$salario->id}}">{{$salario->salario}}</option>
             @endforeach
-
-            @error('salario')
-            {{-- {{$message}} --}}
-                <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
-            @enderror
         </x-select>
+        @error('salario')
+        {{-- {{$message}} --}}
+            <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+        @enderror
     </div>
 
     {{-- Categoria --}}
@@ -49,12 +48,11 @@
             @foreach ($categorias as $categoria)
                 <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
             @endforeach
-
-            @error('categoria')
-            {{-- {{$message}} --}}
-                <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
-            @enderror
         </x-select>
+        @error('categoria')
+        {{-- {{$message}} --}}
+            <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+        @enderror
     </div>
 
     {{-- Empresa --}}
