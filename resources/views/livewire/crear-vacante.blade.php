@@ -1,4 +1,4 @@
-<form action="" class="md:w1/2 space-y-4">
+<form action="" class="md:w1/2 space-y-4" wire:submit.prevent='crearVacante' novalidate>
     {{-- Titulo de la vacante --}}
     <div>
         <x-input-label for="titulo" :value="__('Titulo de la vacante')" />
@@ -10,6 +10,11 @@
             wire:model="titulo"
             :value="old('titulo')"
             placeholder="Titulo de la vacante"/>
+        
+            @error('titulo')
+                {{-- {{$message}} --}}
+                <livewire:mostrar-alerta :message="$message"/>{{-- </livewire:mostrar-alerta> --}}
+            @enderror
     </div>
 
     {{-- Salario mensual --}}
@@ -19,11 +24,16 @@
             id="salario"
             wire:model="salario"
             type="select"
-            required>
+            {{-- required --}}>
             <option value="">-- Selecciona un rango salarial --</option>
             @foreach ($salarios as $salario)
                 <option value="{{$salario->id}}">{{$salario->salario}}</option>
             @endforeach
+
+            @error('salario')
+            {{-- {{$message}} --}}
+                <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+            @enderror
         </x-select>
     </div>
 
@@ -39,6 +49,11 @@
             @foreach ($categorias as $categoria)
                 <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
             @endforeach
+
+            @error('categoria')
+            {{-- {{$message}} --}}
+                <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+            @enderror
         </x-select>
     </div>
 
@@ -52,7 +67,11 @@
             type="text"
             :value="old('empresa')"
             placeholder="Nombre de la empresa" />
-        <x-input-error :messages="$errors->get('empresa')" class="mt-2" />
+        {{-- <x-input-error :messages="$errors->get('empresa')" class="mt-2" /> --}}
+        @error('empresa')
+        {{-- {{$message}} --}}
+        <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+        @enderror
     </div>
 
     {{-- Último día para presentar candidaturas --}}
@@ -64,6 +83,10 @@
             wire:model="ultimo_dia"
             type="date"
             :value="old('empresa')" />
+        @error('ultimo_dia')
+        {{-- {{$message}} --}}
+        <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+        @enderror
     </div>
 
     {{-- Descripción del puesto de trabajo --}}
@@ -76,6 +99,10 @@
             wire:model="descripcion"
             placeholder="Descripción general del puesto de trabajo">
         </textarea>
+        @error('descripcion')
+        {{-- {{$message}} --}}
+            <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+        @enderror
     </div>
 
     {{-- Imagen de la vacante --}}
@@ -86,6 +113,10 @@
             class="block mt-1 w-full"
             type="file"
             wire:model="imagen" />
+        @error('imagen')
+        {{-- {{$message}} --}}
+            <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
+        @enderror
     </div>
 
     {{-- Botón de confirmación --}}
