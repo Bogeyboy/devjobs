@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('vacantes', function (Blueprint $table) {
-            $table->string('titulo')->after('id');
+            $table->string('titulo');
             $table->foreignId('salario_id')->constrained()->onDelete('cascade');
             $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
@@ -39,6 +39,9 @@ return new class extends Migration
             $table->dropColumn('descripcion');
             $table->dropColumn('imagen');
             $table->dropColumn('publicado'); */
+            $table->dropForeign('vacantes_categoria_id_foreign');
+            $table->dropForeign('vacantes_salario_id_foreign');
+            $table->dropForeign('vacantes_user_id_foreign');
             $table->dropColumn([
                 'titulo',
                 'salario_id',
