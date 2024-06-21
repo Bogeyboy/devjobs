@@ -40,10 +40,7 @@ class CrearVacante extends Component
         /* $nombre_imagen = str_replace('public/vacantes/','',$imagen); */
         $datos['imagen'] = str_replace('public/vacantes/', '', $imagen);//De esta manera reescribimos la imagen
 
-        /* dd($nombre_Imagen); */
-        
         //Crear la vacante
-
         Vacante::create([
             'titulo'=> $datos['titulo'],
             'salario_id'=> $datos['salario'],
@@ -57,9 +54,12 @@ class CrearVacante extends Component
         ]);
 
         //Crear un mensaje
-
+        session()->flash('mensaje', 'La vacante se ha creado y publicado correctamente.');
+        
         //Redireccionar al usuario
-
+        return redirect()->route('vacantes.index');
+        /* return redirect()->to('/dashboard'); */
+        /* return redirect('vacantes.index'); */
     }
 
     public function render()
