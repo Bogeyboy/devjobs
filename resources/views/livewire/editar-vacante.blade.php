@@ -80,6 +80,19 @@
     </div>
 
     {{-- Imagen de la vacante --}}
+
+    <div class="my-5-w-96">
+        <x-input-label :value="__('Imagen actual de la vacante')" />
+        
+        <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen" accept="image/*" />
+
+        <img src="{{ asset('storage/vacantes') . '/' . $imagen }}" alt="{{ 'Imagen vacante ' . $titulo }}">
+        
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
+    </div>
+
     {{-- <div>
         <x-input-label for="imagen" :value="__('Imagen de la vacante')" />
         <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen" accept="image/*" />
@@ -92,13 +105,13 @@
         </div>
 
         @error('imagen')
-        <livewire:mostrar-alerta :message="$message" />
+            <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div> --}}
 
     {{-- Botón de confirmación --}}
     <x-primary-button class="w-full justify-center">
-        {{ __('Crear vacante') }}
+        {{ __('Guardar cambios') }}
     </x-primary-button>
 </form>
 
