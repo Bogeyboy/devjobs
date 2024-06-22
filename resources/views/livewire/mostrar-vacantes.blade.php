@@ -21,7 +21,7 @@
                 </a>
 
                 {{-- Botón para editar candidatura --}}
-                <a href="#" class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
+                <a href="{{ route('vacantes.edit', $vacante->id) }}" class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
                     Editar
                 </a>
 
