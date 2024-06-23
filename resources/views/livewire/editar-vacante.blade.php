@@ -84,30 +84,33 @@
     <div class="my-5-w-96">
         <x-input-label :value="__('Imagen actual de la vacante')" />
         
-        <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen" accept="image/*" />
+        <x-text-input
+            id="imagen"
+            class="block mt-1 w-full"
+            type="file"
+            wire:model="imagen_nueva"
+            accept="image/*" />
 
-        <img src="{{ asset('storage/vacantes') . '/' . $imagen }}" alt="{{ 'Imagen vacante ' . $titulo }}">
+        {{-- Imagen actual --}}
+        <div class="my-5 w-96">
+            <img
+                src="{{ asset('storage/vacantes') . '/' . $imagen }}"
+                alt="{{ 'Imagen vacante ' . $titulo }}" />
+        </div>
+
+        {{-- Imagen nueva --}}
+        <div class="my-5 w-96">
+            @if ($imagen_nueva)
+            Imagen nueva:
+            <img
+                src="{{ $imagen_nueva->temporaryUrl() }}" />
+            @endif
+        </div>
         
-        @error('imagen')
+        @error('imagen_nueva')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
-
-    {{-- <div>
-        <x-input-label for="imagen" :value="__('Imagen de la vacante')" />
-        <x-text-input id="imagen" class="block mt-1 w-full" type="file" wire:model="imagen" accept="image/*" />
-
-        <div class="my-5 w-96">
-            @if ($imagen)
-            Previsualización de la imgen:
-            <img src="{{ $imagen->temporaryUrl() }}" />
-            @endif
-        </div>
-
-        @error('imagen')
-            <livewire:mostrar-alerta :message="$message" />
-        @enderror
-    </div> --}}
 
     {{-- Botón de confirmación --}}
     <x-primary-button class="w-full justify-center">
