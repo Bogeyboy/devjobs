@@ -4,7 +4,7 @@
             {{-- Datos de la oferta publicada --}}
             <div class="space-y-3">
                 {{-- Titulo --}}
-                <a href="#" class="text-xl font-bold">
+                <a href="{{ route('vacantes.show', $vacante->id) }}" class="text-xl font-bold">
                     {{$vacante->titulo}}
                 </a>
                 {{-- Empresa --}}
