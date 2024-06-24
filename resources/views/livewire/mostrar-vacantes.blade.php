@@ -44,3 +44,26 @@
         {{$vacantes->links()}}
     </div>
 </div>
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            title: "¿Estás seguro de eliminar la vacante?",
+            text: "Una vacante eliminada no se puede recuperar",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, ¡Eliminar!",
+            cancelButtonText: "Cancelar"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "¡Eliminada!",
+                text: "Tu vacante ha sido eliminada.",
+                icon: "success"
+            });
+            }
+        });
+    </script>
+@endpush
