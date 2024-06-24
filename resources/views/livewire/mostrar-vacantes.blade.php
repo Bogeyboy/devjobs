@@ -29,9 +29,15 @@
                 </a>
 
                 {{-- Botón para eliminar vacantes --}}
-                <a href="#" class="bg-red-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
+                {{-- <a href="#" class="bg-red-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
                     Eliminar
-                </a>
+                </a> --}}
+                <button
+                    wire:click="$dispatch('prueba',{id: {{ $vacante->id }} })"
+                    {{-- wire:click="$dispatch('prueba',{vacante: {{ $vacante->id }} })" --}}
+                    class="bg-red-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
+                    Eliminar
+                </button>
             </div>
         </div>
     @empty
@@ -47,7 +53,10 @@
 @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        Swal.fire({
+        Livewire.on('prueba', vacante_id => {
+            alert(vacante_id.id);
+        });
+        /* Swal.fire({
             title: "¿Estás seguro de eliminar la vacante?",
             text: "Una vacante eliminada no se puede recuperar",
             icon: "warning",
@@ -64,6 +73,6 @@
                 icon: "success"
             });
             }
-        });
+        }); */
     </script>
 @endpush
