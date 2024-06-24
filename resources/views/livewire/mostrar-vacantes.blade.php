@@ -33,8 +33,8 @@
                     Eliminar
                 </a> --}}
                 <button
-                    wire:click="$dispatch('prueba',{id: {{ $vacante->id }} })"
-                    {{-- wire:click="$dispatch('prueba',{vacante: {{ $vacante->id }} })" --}}
+                    wire:click="$dispatch('mostrarAlerta',{{$vacante->id}} )"
+                    {{-- wire:click="$dispatch('mostrarAlerta',{vacante: {{ $vacante->id }} })" --}}
                     class="bg-red-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
                     Eliminar
                 </button>
@@ -50,29 +50,31 @@
         {{$vacantes->links()}}
     </div>
 </div>
-@push('scripts')
+{{-- @push('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        Livewire.on('prueba', vacante_id => {
-            alert(vacante_id.id);
-        });
-        /* Swal.fire({
-            title: "¿Estás seguro de eliminar la vacante?",
-            text: "Una vacante eliminada no se puede recuperar",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Si, ¡Eliminar!",
-            cancelButtonText: "Cancelar"
-        }).then((result) => {
-        if (result.isConfirmed) {
+        Livewire.on('mostrarAlerta', (vacante_id) => {
             Swal.fire({
-                title: "¡Eliminada!",
-                text: "Tu vacante ha sido eliminada.",
-                icon: "success"
+                title: "¿Estás seguro de eliminar la vacante?",
+                text: "Una vacante eliminada no se puede recuperar",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Si, ¡Eliminar!",
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    //Livewire.emit('eliminarVacante');
+                    Livewire.dispatch('eliminarVacante', { vacante: vacante_id});
+                    Swal.fire({
+                    //Eliminamos la vacante desde el servidor
+                    title: "¡Eliminada!",
+                    text: "Tu vacante ha sido eliminada.",
+                    icon: "success"
+                    });
+                }
             });
-            }
-        }); */
+        });
     </script>
-@endpush
+@endpush --}}

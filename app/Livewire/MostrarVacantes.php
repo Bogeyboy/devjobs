@@ -8,16 +8,11 @@ use Livewire\Attributes\On;
 
 class MostrarVacantes extends Component
 {
-    /* protected $listeners = [
-        'prueba'
+    protected $listeners = [
+        'eliminarVacante'
     ];
 
-    //#[On('prueba')]
-    
-    public function prueba($id)
-    {
-        dd($id);
-    } */
+    /* #[On('eliminarVacante')] */
     
     public function render()
     {
@@ -26,5 +21,11 @@ class MostrarVacantes extends Component
         return view('livewire.mostrar-vacantes',[
             'vacantes' => $vacantes,
         ]);
+    }
+
+    public function eliminarVacante(Vacante $vacante)
+    {
+        dd($vacante->titulo);
+        /* $vacante->delete(); */
     }
 }
