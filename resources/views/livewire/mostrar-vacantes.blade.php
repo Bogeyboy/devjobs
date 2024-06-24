@@ -3,12 +3,15 @@
         <div class="p-6 bg-white border-b border-gray-200 md:flex md:justify-between md:items-center dark:text-gray-500">
             {{-- Datos de la oferta publicada --}}
             <div class="space-y-3">
+                {{-- Titulo --}}
                 <a href="#" class="text-xl font-bold">
                     {{$vacante->titulo}}
                 </a>
+                {{-- Empresa --}}
                 <p class="text-sm text-gray-600 font-bold">
                     {{$vacante->empresa}}
                 </p>
+                {{-- Ultimo día de inscripción --}}
                 <p class="text-sm text-gray-500">
                     Último día de inscripción: {{$vacante->ultimo_dia->format('d/m/Y')}}
                 </p>
