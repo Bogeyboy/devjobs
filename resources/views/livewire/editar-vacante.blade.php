@@ -10,7 +10,6 @@
         <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
         @enderror
     </div>
-
     {{-- Salario mensual --}}
     <div>
         <x-input-label for="salario" :value="__('Salario mensual')" />
@@ -25,7 +24,6 @@
         <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
         @enderror
     </div>
-
     {{-- Categoria --}}
     <div>
         <x-input-label for="categoria" :value="__('Categoria')" />
@@ -40,7 +38,6 @@
         <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
         @enderror
     </div>
-
     {{-- Empresa --}}
     <div>
         <x-input-label for="empresa" :value="__('Empresa')" />
@@ -53,7 +50,6 @@
         <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
         @enderror
     </div>
-
     {{-- Último día para presentar candidaturas --}}
     <div>
         <x-input-label for="ultimo_dia" :value="__('Último día para las candidaturas')" />
@@ -64,7 +60,6 @@
         <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
         @enderror
     </div>
-
     {{-- Descripción del puesto de trabajo --}}
     <div>
         <x-input-label for="descripcion" :value="__('Descripción del puesto')" />
@@ -78,9 +73,7 @@
         <livewire:mostrar-alerta :message="$message" />{{-- </livewire:mostrar-alerta> --}}
         @enderror
     </div>
-
     {{-- Imagen de la vacante --}}
-
     <div class="my-5-w-96">
         <x-input-label :value="__('Imagen actual de la vacante')" />
         
@@ -111,7 +104,6 @@
             <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
-
     {{-- Botón de confirmación --}}
     <x-primary-button class="w-full justify-center">
         {{ __('Guardar cambios') }}
