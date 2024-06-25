@@ -8,7 +8,7 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-Livewire.on('mostrarAlerta', (vacante_id) => {
+/* Livewire.on('mostrarAlerta', (vacante_id) => {
             Swal.fire({
                 title: "¿Estás seguro de eliminar la vacante?",
                 text: "Una vacante eliminada no se puede recuperar",
@@ -30,4 +30,4 @@ Livewire.on('mostrarAlerta', (vacante_id) => {
                     });
                 }
             });
-        });
+        }); */

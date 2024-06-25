@@ -25,6 +25,6 @@
     89.825V139.625H297.2Z"/>
 </svg> --}}
 
-<h1 class="text-4xl text-white">
+<h1 class="text-4xl dark:text-gray-200">
     Dev<span class="font-extrabold">jobs</span>
 </h1>
