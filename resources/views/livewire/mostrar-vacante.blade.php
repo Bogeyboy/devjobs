@@ -24,14 +24,14 @@
             <p class="font-bold text-sm uppercase dark:text-gray-100 text-gray-800 my-3">
                 Categoria:
                 <span class="normal-case font-normal">
-                    {{$vacante->categoria_id}}
+                    {{$vacante->categoria->categoria}}
                 </span>
             </p>
             {{-- Salario --}}
             <p class="font-bold text-sm uppercase dark:text-gray-100 text-gray-800 my-3">
                 Salario:
                 <span class="normal-case font-normal">
-                    {{$vacante->salario_id}}
+                    {{$vacante->salario->salario}}
                 </span>
             </p>
         </div>
