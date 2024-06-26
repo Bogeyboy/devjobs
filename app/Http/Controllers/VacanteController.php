@@ -22,7 +22,7 @@ class VacanteController extends Controller
         } else {
             abort(403, 'Acción no autorizada.');
         };
-        
+        //return view('vacantes.index');
     }
 
     /**
@@ -30,7 +30,17 @@ class VacanteController extends Controller
      */
     public function create()
     {
-        return view('vacantes.create');
+        //$this->authorize('update',$vacante);
+        if (Gate::allows('create', Vacante::class)) { //Le pasamos el modelo completo
+            /* return view('vacantes.index', [
+                'vacante' => $vacante
+            ]); */
+            return view('vacantes.create');
+        } else {
+            abort(403, 'Acción no autorizada.');
+        };
+        
+        //return view('vacantes.create');
     }
     /**
      * Display the specified resource.
