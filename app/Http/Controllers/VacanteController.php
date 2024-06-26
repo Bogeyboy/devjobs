@@ -13,7 +13,16 @@ class VacanteController extends Controller
      */
     public function index()
     {
-        return view('vacantes.index');
+        //$this->authorize('update',$vacante);
+        if (Gate::allows('viewAny', Vacante::class)) { //Le pasamos el modelo completo
+            /* return view('vacantes.index', [
+                'vacante' => $vacante
+            ]); */
+            return view('vacantes.index');
+        } else {
+            abort(403, 'Acción no autorizada.');
+        };
+        
     }
 
     /**
