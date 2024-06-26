@@ -5,7 +5,7 @@
             {{ $vacante->titulo }}
         </h3>
         {{-- Información de la oferta --}}
-        <div class="md:grid md:grid-cols-2 bg-gray-50 dark:bg-gray-500 p-4 my-10 rounded-lg">
+        <div class="md:grid md:grid-cols-2 bg-gray-100 dark:bg-gray-500 p-4 my-10 rounded-lg">
             {{-- Empresa --}}
             <p class="font-bold text-sm uppercase dark:text-gray-100 text-gray-800 my-3">
                 Empresa :
@@ -52,4 +52,13 @@
             <p> {{$vacante->descripcion}} </p>
         </div>
     </div>
+    @guest
+        <div class="mt-5 bg-gray-100 dark:bg-gray-500 border border-dashed p-5 text-center">
+            ¿Quieres inscribirte en esta vacante?
+            <a class="font-bold text-indigo-600" href="{{ route('register') }}">
+                Regístrate e inscribete a esta y otras vacantes.
+            </a>
+        </div>    
+    @endguest
+    
 </div>

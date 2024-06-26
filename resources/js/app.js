@@ -1,14 +1,14 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
+//import Alpine from 'alpinejs';
 
 import Swal from 'sweetalert2';
 
-window.Alpine = Alpine;
+//window.Alpine = Alpine;
 
-Alpine.start();
+//Alpine.start();
 
-/* Livewire.on('mostrarAlerta', (vacante_id) => {
+Livewire.on('mostrarAlerta', (vacante_id) => {
             Swal.fire({
                 title: "¿Estás seguro de eliminar la vacante?",
                 text: "Una vacante eliminada no se puede recuperar",
@@ -20,14 +20,13 @@ Alpine.start();
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    //Livewire.emit('eliminarVacante');
                     Livewire.dispatch('eliminarVacante', { vacante: vacante_id});
                     Swal.fire({
                     //Eliminamos la vacante desde el servidor
-                    title: "¡Eliminada!",
-                    text: "Tu vacante ha sido eliminada.",
-                    icon: "success"
+                        title: "¡Eliminada!",
+                        text: "Tu vacante ha sido eliminada.",
+                        icon: "success"
                     });
                 }
             });
-        }); */
+        });

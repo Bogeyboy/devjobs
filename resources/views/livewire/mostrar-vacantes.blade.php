@@ -22,12 +22,10 @@
                 <a href="#" class="bg-slate-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
                     Candidatos
                 </a>
-
                 {{-- Botón para editar candidatura --}}
                 <a href="{{ route('vacantes.edit', $vacante->id) }}" class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center">
                     Editar
                 </a>
-
                 <button
                     wire:click="$dispatch('mostrarAlerta',{{$vacante->id}} )"
                     {{-- wire:click="$dispatch('mostrarAlerta',{vacante: {{ $vacante->id }} })" --}}
@@ -47,8 +45,8 @@
     </div>
 </div>
 @push('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+{{--     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+    {{-- <script>
         Livewire.on('mostrarAlerta', (vacante_id) => {
             Swal.fire({
                 title: "¿Estás seguro de eliminar la vacante?",
@@ -61,16 +59,15 @@
                 cancelButtonText: "Cancelar"
             }).then((result) => {
                 if (result.isConfirmed) {
-            //Livewire.emit('eliminarVacante');
-                Livewire.dispatch('eliminarVacante', { vacante: vacante_id});
-                Swal.fire({
-                //Eliminamos la vacante desde el servidor
-                title: "¡Eliminada!",
-                text: "Tu vacante ha sido eliminada.",
-                icon: "success"
-                });
+                    Livewire.dispatch('eliminarVacante', { vacante: vacante_id});
+                    Swal.fire({
+                        //Eliminamos la vacante desde el servidor
+                        title: "¡Eliminada!",
+                        text: "Tu vacante ha sido eliminada.",
+                        icon: "success"
+                        });
                 }
             });
         });
-    </script>
+    </script> --}}
 @endpush

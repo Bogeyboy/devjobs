@@ -25,7 +25,6 @@ class MostrarVacantes extends Component
 
     public function eliminarVacante(Vacante $vacante)
     {
-        dd($vacante->titulo);
-        /* $vacante->delete(); */
+        $vacante->delete();
     }
 }
