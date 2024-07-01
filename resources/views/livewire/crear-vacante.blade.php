@@ -1,4 +1,4 @@
-<form action="" class="md:w1/2 space-y-4" wire:submit.prevent='crearVacante' novalidate>
+<form class="md:w1/2 space-y-4" wire:submit.prevent='crearVacante' novalidate>
     {{-- Titulo de la vacante --}}
     <div>
         <x-input-label for="titulo" :value="__('Titulo de la vacante')" />
