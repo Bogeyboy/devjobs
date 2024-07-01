@@ -3,9 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class PostularVacante extends Component
 {
+    use WithFileUploads;
+    
     public $cv;
 
     protected $rules = [
@@ -16,7 +19,10 @@ class PostularVacante extends Component
     {
         $datos = $this->validate();
 
-        //Almacenar CV en Disco
+        //Almacenar CV
+        $cv = $this->cv->store('public/cv');
+
+        $datos['cv'] = str_replace('public/cv/', '', $cv);//De esta manera reescribimos el cv
 
         //Crear la vacante
 

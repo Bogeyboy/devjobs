@@ -37,7 +37,6 @@ class CrearVacante extends Component
         //Almacenar la imagen
         $imagen = $this->imagen->store('public/vacantes');
 
-        /* $nombre_imagen = str_replace('public/vacantes/','',$imagen); */
         $datos['imagen'] = str_replace('public/vacantes/', '', $imagen);//De esta manera reescribimos la imagen
 
         //Crear la vacante
