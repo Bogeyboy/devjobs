@@ -36,9 +36,11 @@ class PostularVacante extends Component
             'cv' => $datos['cv']
         ]);
 
+        //Mostrar al usuario mensaje de inscripción correcta
+        session()->flash('mensaje','Se envió correctamente tu información, mucha suerte');
+        return redirect()->back();
         //Crear notificación y enviar Email
 
-        //Mostrar al usuario mensaje de inscripción correcta
     }
     
     public function render()
