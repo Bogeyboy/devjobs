@@ -9,14 +9,26 @@ use Illuminate\Notifications\Notification;
 
 class NuevoCandidato extends Notification
 {
+    public $id_vacante;
+    public $nombre_vacante;
+    public $usuario_id;
+    /* private $id_vacante;
+    private $nombre_vacante;
+    private $usuario_id; */
+
     use Queueable;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($id_vacante, $nombre_vacante,$usuario_id)
     {
-        //
+        $this->id_vacante = $id_vacante;
+        $this->nombre_vacante = $nombre_vacante;
+        $this->usuario_id = $usuario_id;
+        /* $this->id_vacante = $id_vacante;
+        $this->nombre_vacante = $nombre_vacante;
+        $this->usuario_id = $usuario_id; */
     }
 
     /**
@@ -26,7 +38,7 @@ class NuevoCandidato extends Notification
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail','database'];//Además de enviarse la notificación por email, se almacenará en la BD
     }
 
     /**
@@ -34,15 +46,23 @@ class NuevoCandidato extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
+        //$url = url('/candidatos' . '/' . $this->id_vacante);
+        $url = url('/notificaciones');
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Un nuevo candidato se ha inscrito en la vacante.')
+                    ->line('La vacante es: ' . $this->nombre_vacante)
+                    ->action('Ver notificaciones', $url)//Este es el texto que va a aparecer en el botón
+                    ->line('Gracias por utilizar DevJobs');
     }
 
     //Almacena las notificaciones en la BD
     public function toDatabase(object $notifiable)
     {
-        
+        return [
+            'id_vacante' => $this->id_vacante,
+            'nombre_vacante' => $this->nombre_vacante,
+            'usuario_id' => $this->usuario_id,
+        ];
     }
 }
