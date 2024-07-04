@@ -28,6 +28,18 @@
             <!-- El menú desplegable solo se mostrará si el usuario está autenticado -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 @auth
+                    <p class="text-gray-500 dark:text-gray-400 mr-2">Hay: </p>
+                    @if (auth()->user()->rol === 2)
+                        <a href="{{ route('notificaciones') }}"
+                            class="mr-2 text-gray-500 dark:text-gray-400 w-7 h-7 bg-indigo-600 hover:bg-red-800
+                                rounded-full flex flex-col justify-center items-center text-sm font-extrabold text-white">
+                            {{-- {{Auth::user->unreadNotifications->count()}} --}}
+                            {{auth()->user()->unreadNotifications->count()}}
+                        </a>
+                        <p class="text-gray-500 dark:text-gray-400">
+                            Notificaciones
+                        </p>
+                    @endif
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
@@ -142,3 +154,5 @@
         @endguest
     </div>
 </nav>
+
+
