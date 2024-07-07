@@ -49,6 +49,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         /* return redirect(route('dashboard', absolute: false)); */
-        return redirect(RouteServiceProvider::HOME);
+        //return redirect(RouteServiceProvider::HOME);
+        return redirect()->intended(route('vacantes.index', absolute: false));
     }
 }

@@ -31,6 +31,7 @@
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 @auth
                     @can('create',App\Models\Vacante::class)
+                    {{-- @if(auth()->user()->rol ===2 ) --}}
                         <p class="text-gray-500 dark:text-gray-400 mr-2">Hay: </p>
                         <a href="{{ route('notificaciones') }}"
                             class="mr-2 text-gray-500 dark:text-gray-400 w-7 h-7 bg-indigo-600 hover:bg-red-800
@@ -41,6 +42,7 @@
                         <p class="text-gray-500 dark:text-gray-400">
                             Notificaciones
                         </p>
+                    {{-- @endif --}}
                     @endcan
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
