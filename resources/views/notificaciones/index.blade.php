@@ -36,7 +36,8 @@
                                 </div>
                                 {{-- Para ver los candidatos inscritos --}}
                                 <div class="mt-5 lg:mt-0">
-                                    <a href="{{route('candidatos.index',$notificacion->data['id_vacante'])}}" class="bg-indigo-500 dark:bg-indigo-500 p-3 text-sm uppercase font-bold dark:text-white rounded-lg">
+                                    <a href="{{route('candidatos.index',$notificacion->data['id_vacante'])}}"
+                                        class="bg-indigo-500 dark:bg-indigo-500 p-3 text-sm uppercase font-bold dark:text-white rounded-lg">
                                         Ver candidatos
                                     </a>
                                 </div>
