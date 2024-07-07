@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class CandidatosController extends Controller
 {
-    public function indexAction(Vacante $vacante)
+    public function index(Vacante $vacante)
     {
         return view('candidatos.index', [
             'vacante' => $vacante

@@ -22,6 +22,7 @@ Route::get('/vacantes/{vacante}/edit', [VacanteController::class, 'edit'])
 Route::get('/vacantes/{vacante}', [VacanteController::class, 'show'])
     ->name('vacantes.show');
 
+//Candidatos
 Route::get('/candidatos/{vacante}/', [CandidatosController::class, 'index'])
     ->name('candidatos.index');
 
