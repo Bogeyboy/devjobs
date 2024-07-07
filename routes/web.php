@@ -10,7 +10,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dashboard',[VacanteController::class,'index'])
-        ->middleware(['auth', 'verified'])->name('vacantes.index');
+        ->middleware(['auth', 'verified', 'rol.reclutador'])->name('vacantes.index');
 
 Route::get('/vacantes/create', [VacanteController::class, 'create'])
     ->middleware(['auth', 'verified'])->name('vacantes.create');
