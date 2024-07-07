@@ -14,35 +14,37 @@
                     {{-- <div class="md:flex md:justify-center px-5">
                         <livewire:crear-vacante />
                     </div> --}}
-                    @forelse ($notificaciones as $notificacion)
-                        <div class="p-5 border dark:border-gray-100 border-gray-600 lg:flex justify-between lg:items-center">
-                            {{-- Sobre la vacante --}}
-                            <div>
-                                {{-- Nombre de la vacante --}}
-                                <p>
-                                    Tienes un nuevo candidato en: 
-                                    <span class="font-bold">
-                                        {{ $notificacion->data['nombre_vacante'] }}
-                                    </span>
-                                </p>
-                                {{-- Fecha de la notificación --}}
-                                <p>
-                                    Notificación creada hace: 
-                                    <span class="font-bold">
-                                        {{ $notificacion->created_at->diffForHumans() }}
-                                    </span>
-                                </p>
+                    <div class="divide-y dark:divide-gray-200 divide-gray-600">
+                        @forelse ($notificaciones as $notificacion)
+                            <div class="p-5 border dark:border-gray-100 border-gray-600 lg:flex justify-between lg:items-center">
+                                {{-- Sobre la vacante --}}
+                                <div>
+                                    {{-- Nombre de la vacante --}}
+                                    <p>
+                                        Tienes un nuevo candidato en: 
+                                        <span class="font-bold">
+                                            {{ $notificacion->data['nombre_vacante'] }}
+                                        </span>
+                                    </p>
+                                    {{-- Fecha de la notificación --}}
+                                    <p>
+                                        Notificación creada hace: 
+                                        <span class="font-bold">
+                                            {{ $notificacion->created_at->diffForHumans() }}
+                                        </span>
+                                    </p>
+                                </div>
+                                {{-- Para ver los candidatos inscritos --}}
+                                <div class="mt-5 lg:mt-0">
+                                    <a href="{{route('candidatos.index',$notificacion->data['id_vacante'])}}" class="bg-indigo-500 dark:bg-indigo-500 p-3 text-sm uppercase font-bold dark:text-white rounded-lg">
+                                        Ver candidatos
+                                    </a>
+                                </div>
                             </div>
-                            {{-- Para ver los candidatos inscritos --}}
-                            <div class="mt-5 lg:mt-0">
-                                <a href="" class="bg-indigo-500 dark:bg-indigo-500 p-3 text-sm uppercase font-bold dark:text-white rounded-lg">
-                                    Ver candidatos
-                                </a>
-                            </div>
-                        </div>
-                    @empty
-                        <p class="text-center dark:text-gray-100 text-gray-600">No hay notificaciones nuevas</p>
-                    @endforelse
+                        @empty
+                            <p class="text-center dark:text-gray-100 text-gray-600">No hay notificaciones nuevas</p>
+                        @endforelse
+                    </div>
                 </div>
             </div>
         </div>

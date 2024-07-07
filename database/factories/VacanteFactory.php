@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Salario;
+use App\Models\Categoria;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,14 @@ class VacanteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'titulo' => $this->faker->jobTitle(),
+            'salario_id' => Salario::all()->random()->id,
+            'categoria_id' => Categoria::all()->random()->id,
+            'empresa' => $this->faker->company,
+            'ultimo_dia' => $this->faker->dateTimeThisMonth(),
+            'descripcion' => $this->faker->paragraph(3),
+            'imagen' => $this->faker->imageUrl(),
+            'user_id' => User::all()->random()->id
         ];
     }
 }
