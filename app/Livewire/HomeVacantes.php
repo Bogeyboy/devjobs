@@ -34,36 +34,22 @@ class HomeVacantes extends Component
     {
         //dd($this->termino);
         //$vacantes = Vacante::all();
-        /* $vacantes = Vacante::when($this->termino, function($query){
-            $query->where('titulo','LIKE',"%". $this->termino . "%");   //El % es el carácter comodín para las búsquedas
-        })->paginate(10); */
-
-        $vacantes = Vacante::when($this->termino, function ($query)
+        $vacantes = Vacante::when($this->termino, function($query)
         {
-            $query->where(function ($subquery)
-            {
-                $subquery->where('titulo', 'LIKE', "%" . $this->termino . "%")
-                    ->orWhere('empresa', 'LIKE', "%" . $this->termino . "%");
-            });
-        })->when($this->categoria, function ($query)
-            {
-                $query->where(function ($subquery)
-                {
-                    if ($this->categoria !== 'all')
-                    {
-                        $subquery->where('categoria_id', $this->categoria);
-                    }
-                });
-            })->when($this->salario, function ($query)
-            {
-                $query->where(function ($subquery)
-                {
-                    if ($this->salario !== 'all')
-                    {
-                        $subquery->where('salario_id', $this->salario);
-                    }
-                });
-            })->paginate(5);
+            $query->where('titulo','LIKE',"%". $this->termino . "%");   //El % es el carácter comodín para las búsquedas
+        })
+        ->when($this->termino, function ($query) {
+            $query->orWhere('empresa','LIKE', "%" . $this->termino . "%");
+        })
+        ->when($this->categoria, function($query)
+        {
+            $query->where('categoria_id',$this->categoria);
+        })
+        ->when($this->salario, function ($query) {
+            $query->where('salario_id', $this->salario);
+        })
+        ->whereDate('ultimo_dia','>',now())
+        ->paginate(10);
 
         return view('livewire.home-vacantes',[
             'vacantes' => $vacantes

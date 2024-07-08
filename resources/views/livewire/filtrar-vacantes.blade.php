@@ -25,7 +25,7 @@
                     <select
                         class="border-gray-300 p-2 w-full"
                         wire:model="categoria">
-                        <option>--Seleccione--</option>
+                        <option value="">--Seleccione--</option>
 
                         @foreach ($categorias as $categoria )
                             <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
@@ -38,7 +38,7 @@
                     <select
                         class="border-gray-300 p-2 w-full"
                         wire:model="salario">
-                        <option>-- Seleccione --</option>
+                        <option value="">-- Seleccione --</option>
                         @foreach ($salarios as $salario)
                             <option value="{{ $salario->id }}">{{$salario->salario}}</option>
                         @endforeach

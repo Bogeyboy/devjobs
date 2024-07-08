@@ -10,14 +10,25 @@
                     <div class="md:flex md:justify-between md:items-center py-5">
                         {{-- Enlace para información de vacante --}}
                         <div class="md:flex-1">
+                            {{-- Titulo de la oferta --}}
                             <a 
                                 class="text-3xl font-extrabold text-gray-600 dark:text-gray-600"
                                 href="{{ route('vacantes.show',$vacante->id) }}">
                                 {{ $vacante->titulo }}
                             </a>
+                            {{-- Empresa publicadora de la oferta --}}
                             <p class="text-base text-gray-600 mb-1">
                                 {{ $vacante->empresa }}
                             </p>
+                            {{-- Categoria de la oferta --}}
+                            <p class="text-xs font-bold text-gray-600 mb-1">
+                                {{ $vacante->categoria->categoria }}
+                            </p>
+                            {{-- Salario de la oferta --}}
+                            <p class="text-base font-bold text-gray-600 mb-1">
+                                {{ $vacante->salario->salario }}
+                            </p>
+                            {{-- Ultimo dia de inscripción --}}
                             <p class="font-bold text-xs text-gray-600">
                                 Último día para inscribirse: 
                                 <span class="font-normal">
@@ -36,7 +47,7 @@
                         </div>
                     </div>
                 @empty
-                    <p class="p-3 text-center text-sm text-gray-800 dark:text-gray-200">Todavía no hay vacantes disponibles</p>
+                    <p class="p-3 text-center text-sm text-gray-800 dark:text-gray-800">Todavía no hay vacantes disponibles</p>
                 @endforelse
                 <div class="  mt-10">
                     {{ $vacantes->links() }}
